@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import questions from './questions'
+import pages from './pages'
 
 const rootReducer = combineReducers({
-  questions,
+  pages,
 })
 
 export default rootReducer

@@ -3,12 +3,12 @@ import React from 'react'
 import './ScaleQuestion.css'
 
 const ScaleQuestion = ({ 
-  currentQuestion, 
+  question, 
   selectAnswerYou,
   currentAnswer,
 }) => {
   const handleChange = (e) => {
-    const identifier = currentQuestion.collect
+    const identifier = question.collect
     selectAnswerYou({
         identifier,
         value: e.target.value
@@ -16,16 +16,16 @@ const ScaleQuestion = ({
   }
   return (
     <>
-    <h3>{currentQuestion.caption}</h3>
-    <h2>{currentQuestion.label}</h2>
-    <h4>{currentQuestion.options[currentAnswer.answerYou]}</h4>
+    <h3>{question.caption}</h3>
+    <h2>{question.label}</h2>
+    <h4>{question.options[currentAnswer.answerYou]}</h4>
     <input 
       type="range" 
       id="answer" 
       name="answer" 
       min="0" 
       value={currentAnswer.youAnswer}
-      max={currentQuestion.values.length - 1}
+      max={question.values.length - 1}
       onChange={handleChange}>
     </input>
     <br/>

@@ -1,16 +1,16 @@
 import {
-  GET_NEXT_QUESTION,
-  GET_PREVIOUS_QUESTION,
+  GET_NEXT_PAGE,
+  GET_PREVIOUS_PAGE,
   SELECT_ANSWER_YOU,
   SELECT_ANSWER_PARTNER,
 } from '../types'
 
-export const getPreviousQuestion = () => ({
-  type: GET_PREVIOUS_QUESTION,
+export const getPreviousPage = () => ({
+  type: GET_PREVIOUS_PAGE,
 })
 
-export const getNextQuestion = () => ({
-  type: GET_NEXT_QUESTION,
+export const getNextPage = () => ({
+  type: GET_NEXT_PAGE,
 })
 
 export const selectAnswerYou = (payload) => ({

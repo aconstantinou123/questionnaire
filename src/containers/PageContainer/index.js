@@ -1,24 +1,24 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import * as questionActionCreators from '../../actions/questions'
+import * as pageActionCreators from '../../actions/pages'
 
-import QuestionContainer from './QuestionContainer'
+import PageContainer from './PageContainer'
 
 function mapStateToProps(state, routing) {
   return {
-    ...state.questions,
+    ...state.pages,
     ...routing,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    ...questionActionCreators,
+    ...pageActionCreators,
   }, dispatch)
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(QuestionContainer)
+)(PageContainer)

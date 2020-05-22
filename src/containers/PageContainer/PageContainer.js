@@ -1,14 +1,14 @@
 import React from 'react';
 
 import ScaleQuestion from '../../components/ScaleQuestion/ScaleQuestion'
-import './QuestionContainer.css';
+import './PageContainer.css';
 
-const QuestionContainer = ({ 
-  currentQuestion,
-  getNextQuestion,
-  getPreviousQuestion,
-  currentQuestionIndex,
-  questions,
+const PageContainer = ({ 
+  currentPage,
+  getNextPage,
+  getPreviousPage,
+  currentPageIndex,
+  pages,
   answers,
   currentAnswerYou,
   currentAnswerPartner,
@@ -17,18 +17,18 @@ const QuestionContainer = ({
 }) => {
   const getCurrentAnswer = () => {
     return answers
-    .find(answer => answer.identifer === currentQuestion.collect)
+    .find(answer => answer.identifer === currentPage.collect)
   }
   return (
     <div>
     {
-      currentQuestion.type === 'info' &&
+      currentPage.type === 'info' &&
       <div className="info">Info</div>
     }
     {
-      currentQuestion.type === 'rating_scale' &&
+      currentPage.type === 'rating_scale' &&
       <ScaleQuestion
-        currentQuestion={currentQuestion}
+        question={currentPage}
         currentAnswer={getCurrentAnswer()}
         currentAnswerYou={currentAnswerYou}
         currentAnswerPartner={currentAnswerPartner}
@@ -37,20 +37,20 @@ const QuestionContainer = ({
       />
     }
     {
-      currentQuestion.type === 'attachment_result' &&
+      currentPage.type === 'attachment_result' &&
       <div>Result</div>
     }
     {
-      currentQuestionIndex !== 0 &&
-      <button className="next" onClick={getPreviousQuestion}>Back</button>
+      currentPageIndex !== 0 &&
+      <button className="next" onClick={getPreviousPage}>Back</button>
     }
     {
-      currentQuestionIndex + 1 !== questions.length && 
+      currentPageIndex + 1 !== pages.length && 
 
-        <button className="next" onClick={getNextQuestion}>Next</button>
+        <button className="next" onClick={getNextPage}>Next</button>
     }
     </div>
   )
 }
 
-export default QuestionContainer
+export default PageContainer

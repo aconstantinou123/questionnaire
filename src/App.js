@@ -1,11 +1,11 @@
 import React from 'react'
-import QuestionContainer from './containers/QuestionContainer'
+import PageContainer from './containers/PageContainer'
 import './App.css'
 
 const App = () => {
   return (
     <div className="App">
-        <QuestionContainer />
+        <PageContainer />
     </div>
   )
 }

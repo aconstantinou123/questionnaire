@@ -1,6 +1,6 @@
 import {
-  GET_NEXT_QUESTION,
-  GET_PREVIOUS_QUESTION,
+  GET_NEXT_PAGE,
+  GET_PREVIOUS_PAGE,
   SELECT_ANSWER_YOU,
   SELECT_ANSWER_PARTNER,
 } from '../types'
@@ -8,9 +8,9 @@ import {
 import data from '../data/quiz-data.json'
 
 const defaultState = {
-  currentQuestion: data.pages[0],
-  currentQuestionIndex: 0,
-  questions: data.pages,
+  currentPage: data.pages[0],
+  currentPageIndex: 0,
+  pages: data.pages,
   currentAnswerYou: 1,
   currentAnswerPartner: 1,
   answers: data.pages
@@ -24,17 +24,17 @@ const defaultState = {
 
 export default function (state = defaultState, action) {
   switch (action.type) {
-    case GET_NEXT_QUESTION:
+    case GET_NEXT_PAGE:
       return {
         ...state,
-        currentQuestionIndex: state.currentQuestionIndex + 1,
-        currentQuestion: data.pages[state.currentQuestionIndex + 1],
+        currentPageIndex: state.currentPageIndex + 1,
+        currentPage: state.pages[state.currentPageIndex + 1],
       }
-    case GET_PREVIOUS_QUESTION:
+    case GET_PREVIOUS_PAGE:
       return {
         ...state,
-        currentQuestionIndex: state.currentQuestionIndex - 1,
-        currentQuestion: data.pages[state.currentQuestionIndex - 1],
+        currentPageIndex: state.currentPageIndex - 1,
+        currentPage: state.pages[state.currentPageIndex - 1],
       }
     case SELECT_ANSWER_YOU:
       return {
