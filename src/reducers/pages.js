@@ -18,7 +18,9 @@ const defaultState = {
     .map(page => ({ 
       identifer: page.collect, 
       youAnswer: page.defaultIndex,
-      partnerAnswer: page.defaultIndex
+      youAnswerText: page.options[page.defaultIndex],
+      partnerAnswer: page.defaultIndex,
+      partnerAnswerText: page.options[page.defaultIndex],
   }))
 }
 
@@ -43,7 +45,8 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              youAnswer: action.payload.value
+              youAnswer: action.payload.value,
+              youAnswerText: state.currentPage.options[action.payload.value]
             }
           }
           return answer
@@ -56,7 +59,8 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              partnerAnswer: action.payload.value
+              partnerAnswer: action.payload.value,
+              partnerAnswerText: state.currentPage.options[action.payload.value]
             }
           }
           return answer

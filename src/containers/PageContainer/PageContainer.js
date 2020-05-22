@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ScaleQuestion from '../../components/ScaleQuestion/ScaleQuestion'
+import Result from '../../components/Result/Result'
 import './PageContainer.css';
 
 const PageContainer = ({ 
@@ -18,6 +19,10 @@ const PageContainer = ({
   const getCurrentAnswer = () => {
     return answers
     .find(answer => answer.identifer === currentPage.collect)
+  }
+  const getQuestions = () => {
+    return pages
+      .filter(question => question.type === 'rating_scale')
   }
   return (
     <div>
@@ -38,7 +43,10 @@ const PageContainer = ({
     }
     {
       currentPage.type === 'attachment_result' &&
-      <div>Result</div>
+      <Result
+        answers={answers}
+        questions={getQuestions()}
+      />
     }
     {
       currentPageIndex !== 0 &&

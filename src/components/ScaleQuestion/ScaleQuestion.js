@@ -18,7 +18,7 @@ const ScaleQuestion = ({
     <>
     <h3>{question.caption}</h3>
     <h2>{question.label}</h2>
-    <h4>{question.options[currentAnswer.answerYou]}</h4>
+    <h4>{question.options[currentAnswer.youAnswer]}</h4>
     <input 
       type="range" 
       id="answer" 
