@@ -24,32 +24,33 @@ const ScaleQuestion = ({
   }
   return (
     <>
-    <h3>{question.caption}</h3>
-    <h2>{question.label}</h2>
-    <h2>{question.scaleTitle}</h2>
-    <h4>{currentAnswer.youAnswerText}</h4>
-    <input 
-      type="range" 
-      id="answer" 
-      name="answer" 
-      min="0" 
-      value={currentAnswer.youAnswer}
-      max={question.values.length - 1}
-      onChange={handleChangeYou}>
-    </input>
-    <h2>{question.scaleTitle2}</h2>
-    <h4>{currentAnswer.partnerAnswerText}</h4>
-    <input 
-      type="range" 
-      id="answer" 
-      name="answer" 
-      min="0" 
-      value={currentAnswer.partnerAnswer}
-      max={question.values.length - 1}
-      onChange={handleChangePartner}>
-    </input>
-    <br/>
-  </>
-)}
+      <h3>{question.caption}</h3>
+      <h2>{question.label}</h2>
+      <h2>{question.scaleTitle}</h2>
+      <h4>{currentAnswer.youAnswerText}</h4>
+      <input 
+        type="range" 
+        id="answer" 
+        name="answer" 
+        min="0" 
+        value={currentAnswer.youAnswer}
+        max={question.values.length - 1}
+        onChange={handleChangeYou}>
+      </input>
+      <h2>{question.scaleTitle2}</h2>
+      <h4>{currentAnswer.partnerAnswerText}</h4>
+      <input 
+        type="range" 
+        id="answer" 
+        name="answer" 
+        min="0" 
+        value={currentAnswer.partnerAnswer}
+        max={question.values.length - 1}
+        onChange={handleChangePartner}>
+      </input>
+      <br/>
+   </>
+  )
+}
 
 export default ScaleQuestion
