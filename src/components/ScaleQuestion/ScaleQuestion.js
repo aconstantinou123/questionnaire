@@ -5,11 +5,19 @@ import './ScaleQuestion.css'
 const ScaleQuestion = ({ 
   question, 
   selectAnswerYou,
+  selectAnswerPartner,
   currentAnswer,
 }) => {
-  const handleChange = (e) => {
+  const handleChangeYou = (e) => {
     const identifier = question.collect
     selectAnswerYou({
+        identifier,
+        value: e.target.value
+      })
+  }
+  const handleChangePartner = (e) => {
+    const identifier = question.collect
+    selectAnswerPartner({
         identifier,
         value: e.target.value
       })
@@ -18,7 +26,8 @@ const ScaleQuestion = ({
     <>
     <h3>{question.caption}</h3>
     <h2>{question.label}</h2>
-    <h4>{question.options[currentAnswer.youAnswer]}</h4>
+    <h2>{question.scaleTitle}</h2>
+    <h4>{currentAnswer.youAnswerText}</h4>
     <input 
       type="range" 
       id="answer" 
@@ -26,7 +35,18 @@ const ScaleQuestion = ({
       min="0" 
       value={currentAnswer.youAnswer}
       max={question.values.length - 1}
-      onChange={handleChange}>
+      onChange={handleChangeYou}>
+    </input>
+    <h2>{question.scaleTitle2}</h2>
+    <h4>{currentAnswer.partnerAnswerText}</h4>
+    <input 
+      type="range" 
+      id="answer" 
+      name="answer" 
+      min="0" 
+      value={currentAnswer.partnerAnswer}
+      max={question.values.length - 1}
+      onChange={handleChangePartner}>
     </input>
     <br/>
   </>

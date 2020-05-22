@@ -11,8 +11,6 @@ const defaultState = {
   currentPage: data.pages[0],
   currentPageIndex: 0,
   pages: data.pages,
-  currentAnswerYou: 1,
-  currentAnswerPartner: 1,
   answers: data.pages
     .filter(page => page.type === 'rating_scale')
     .map(page => ({ 

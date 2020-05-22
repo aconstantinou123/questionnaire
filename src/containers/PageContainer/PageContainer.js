@@ -11,8 +11,6 @@ const PageContainer = ({
   currentPageIndex,
   pages,
   answers,
-  currentAnswerYou,
-  currentAnswerPartner,
   selectAnswerYou,
   selectAnswerPartner,
 }) => {
@@ -35,8 +33,6 @@ const PageContainer = ({
       <ScaleQuestion
         question={currentPage}
         currentAnswer={getCurrentAnswer()}
-        currentAnswerYou={currentAnswerYou}
-        currentAnswerPartner={currentAnswerPartner}
         selectAnswerYou={selectAnswerYou}
         selectAnswerPartner={selectAnswerPartner}
       />
