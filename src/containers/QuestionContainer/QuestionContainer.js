@@ -6,13 +6,19 @@ import './QuestionContainer.css';
 const QuestionContainer = ({ 
   currentQuestion,
   getNextQuestion,
+  getPreviousQuestion,
   currentQuestionIndex,
   questions,
+  answers,
   currentAnswerYou,
   currentAnswerPartner,
   selectAnswerYou,
   selectAnswerPartner,
 }) => {
+  const getCurrentAnswer = () => {
+    return answers
+    .find(answer => answer.identifer === currentQuestion.collect)
+  }
   return (
     <div>
     {
@@ -23,6 +29,7 @@ const QuestionContainer = ({
       currentQuestion.type === 'rating_scale' &&
       <ScaleQuestion
         currentQuestion={currentQuestion}
+        currentAnswer={getCurrentAnswer()}
         currentAnswerYou={currentAnswerYou}
         currentAnswerPartner={currentAnswerPartner}
         selectAnswerYou={selectAnswerYou}
@@ -34,8 +41,13 @@ const QuestionContainer = ({
       <div>Result</div>
     }
     {
-      currentQuestionIndex + 1 !== questions.length &&
-      <button className="next" onClick={getNextQuestion}>Next</button>
+      currentQuestionIndex !== 0 &&
+      <button className="next" onClick={getPreviousQuestion}>Back</button>
+    }
+    {
+      currentQuestionIndex + 1 !== questions.length && 
+
+        <button className="next" onClick={getNextQuestion}>Next</button>
     }
     </div>
   )
