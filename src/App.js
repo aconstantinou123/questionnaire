@@ -1,5 +1,5 @@
 import React from 'react'
-import QuestionContainer from './containers/questionContainer'
+import QuestionContainer from './containers/QuestionContainer'
 import './App.css'
 
 const App = () => {

@@ -1,10 +1,24 @@
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.info {
+  font-size: 23px;
 }
 
-.row:not(:last-child) {
+.next {
+  appearance: none;
+  background: none;
+  font-size: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  outline: none;
+  border: 2px solid transparent;
+  color: rgb(112, 76, 182);
+  padding-bottom: 4px;
+  cursor: pointer;
+  background-color: rgba(112, 76, 182, 0.1);
+  border-radius: 2px;
+  transition: all 0.15s;
+}
+
+/* .row:not(:last-child) {
   margin-bottom: 16px;
 }
 
@@ -71,4 +85,4 @@
   width: 0%;
   opacity: 1;
   transition: 0s
-}
+} */
