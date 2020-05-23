@@ -3,6 +3,7 @@ import {
   GET_PREVIOUS_PAGE,
   SELECT_ANSWER_YOU,
   SELECT_ANSWER_PARTNER,
+  RESET_STATE,
 } from '../types'
 
 import data from '../data/quiz-data.json'
@@ -63,6 +64,22 @@ export default function (state = defaultState, action) {
           }
           return answer
         })
+      }
+    case RESET_STATE:
+      return {
+        ...state,
+        currentPage: data.pages[0],
+        currentPageIndex: 0,
+        pages: data.pages,
+        answers: data.pages
+          .filter(page => page.type === 'rating_scale')
+          .map(page => ({ 
+            identifer: page.collect, 
+            userAnswer: page.defaultIndex + 1,
+            userAnswerText: page.options[page.defaultIndex],
+            partnerAnswer: page.defaultIndex + 1,
+            partnerAnswerText: page.options[page.defaultIndex],
+        }))
       }
     default:
       return state

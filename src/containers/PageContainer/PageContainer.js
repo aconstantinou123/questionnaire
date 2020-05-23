@@ -14,6 +14,7 @@ const PageContainer = ({
   answers,
   selectAnswerYou,
   selectAnswerPartner,
+  resetState,
 }) => {
   const getCurrentAnswer = () => {
     return answers
@@ -50,8 +51,11 @@ const PageContainer = ({
       }
       {
         currentPageIndex + 1 !== pages.length && 
-
-          <button className="next" onClick={getNextPage}>Next</button>
+        <button className="next" onClick={getNextPage}>Next</button>
+      }
+      {
+        currentPageIndex + 1 === pages.length && 
+        <button className="next" onClick={resetState}>Reset</button>
       }
     </div>
     </div>

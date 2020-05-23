@@ -3,6 +3,7 @@ import {
   GET_PREVIOUS_PAGE,
   SELECT_ANSWER_YOU,
   SELECT_ANSWER_PARTNER,
+  RESET_STATE,
 } from '../types'
 
 export const getPreviousPage = () => ({
@@ -21,4 +22,8 @@ export const selectAnswerYou = (payload) => ({
 export const selectAnswerPartner = (payload) => ({
   type: SELECT_ANSWER_PARTNER,
   payload,
+})
+
+export const resetState = () => ({
+  type: RESET_STATE,
 })
