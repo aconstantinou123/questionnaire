@@ -15,9 +15,9 @@ const defaultState = {
     .filter(page => page.type === 'rating_scale')
     .map(page => ({ 
       identifer: page.collect, 
-      userAnswer: page.defaultIndex,
+      userAnswer: page.defaultIndex + 1,
       userAnswerText: page.options[page.defaultIndex],
-      partnerAnswer: page.defaultIndex,
+      partnerAnswer: page.defaultIndex + 1,
       partnerAnswerText: page.options[page.defaultIndex],
   }))
 }
@@ -43,7 +43,7 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              userAnswer: Number(action.payload.value),
+              userAnswer: Number(action.payload.value) + 1,
               userAnswerText: state.currentPage.options[action.payload.value]
             }
           }
@@ -57,7 +57,7 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              partnerAnswer: Number(action.payload.value),
+              partnerAnswer: Number(action.payload.value) + 1,
               partnerAnswerText: state.currentPage.options[action.payload.value]
             }
           }

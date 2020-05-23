@@ -24,30 +24,32 @@ const ScaleQuestion = ({
   }
   return (
     <>
-      <h3>{question.caption}</h3>
-      <h2>{question.label}</h2>
-      <h2>{question.scaleTitle}</h2>
-      <h4>{currentAnswer.userAnswerText}</h4>
-      <input 
-        type="range" 
-        id="answer" 
-        name="answer" 
-        min="0" 
-        value={currentAnswer.userAnswer}
-        max={question.values.length - 1}
-        onChange={handleChangeYou}>
-      </input>
-      <h2>{question.scaleTitle2}</h2>
-      <h4>{currentAnswer.partnerAnswerText}</h4>
-      <input 
-        type="range" 
-        id="answer" 
-        name="answer" 
-        min="0" 
-        value={currentAnswer.partnerAnswer}
-        max={question.values.length - 1}
-        onChange={handleChangePartner}>
-      </input>
+      <p className='caption'>{question.caption}</p>
+      <p className='label'>{question.label}</p>
+      <div className='scaleContainer'>
+        <p className='title'>{question.scaleTitle}</p>
+        <p className='answer'>{currentAnswer.userAnswerText}</p>
+        <input 
+          type="range" 
+          id="answer" 
+          name="answer" 
+          min="0" 
+          value={Number(currentAnswer.userAnswer) - 1}
+          max={question.values.length - 1}
+          onChange={handleChangeYou}>
+        </input>
+        <p className='title'>{question.scaleTitle2}</p>
+        <p className='answer'>{currentAnswer.partnerAnswerText}</p>
+        <input 
+          type="range" 
+          id="answer" 
+          name="answer" 
+          min="0" 
+          value={Number(currentAnswer.partnerAnswer) - 1}
+          max={question.values.length - 1}
+          onChange={handleChangePartner}>
+        </input>
+      </div>
       <br/>
    </>
   )

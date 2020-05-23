@@ -2,6 +2,7 @@ import React from 'react';
 
 import ScaleQuestion from '../../components/ScaleQuestion/ScaleQuestion'
 import Result from '../../components/Result/Result'
+import Info from '../../components/Info/Info'
 import './PageContainer.css';
 
 const PageContainer = ({ 
@@ -19,10 +20,12 @@ const PageContainer = ({
     .find(answer => answer.identifer === currentPage.collect)
   }
   return (
-    <div>
+    <div className='pageContainer'>
     {
       currentPage.type === 'info' &&
-      <div className="info">Info</div>
+      <Info
+      page={currentPage}
+      />
     }
     {
       currentPage.type === 'rating_scale' &&
@@ -36,18 +39,21 @@ const PageContainer = ({
     {
       currentPage.type === 'attachment_result' &&
       <Result
+        page={currentPage}
         answers={answers}
       />
     }
-    {
-      currentPageIndex !== 0 &&
-      <button className="next" onClick={getPreviousPage}>Back</button>
-    }
-    {
-      currentPageIndex + 1 !== pages.length && 
+    <div className='buttonContainer'>
+      {
+        currentPageIndex !== 0 &&
+        <button className="next" onClick={getPreviousPage}>Back</button>
+      }
+      {
+        currentPageIndex + 1 !== pages.length && 
 
-        <button className="next" onClick={getNextPage}>Next</button>
-    }
+          <button className="next" onClick={getNextPage}>Next</button>
+      }
+    </div>
     </div>
   )
 }

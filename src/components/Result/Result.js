@@ -4,8 +4,8 @@ import './Result.css'
 
 const Result = ({
   answers,
+  page,
 }) => {
-  
   const findCommonAnswer = (isPartner) => {
     const totals = answers.reduce((acc, answer) => {
       const key = isPartner ? answer.partnerAnswerText : answer.userAnswerText
@@ -21,11 +21,11 @@ const Result = ({
       }
     }, {})
     const sorted = Object.keys(totals)
-      .map(key => ({ text: key, total: totals[key] }))
-      .sort((a, b) => b.total - a.total)
+    .map(key => ({ text: key, total: totals[key] }))
+    .sort((a, b) => b.total - a.total)
     return sorted[0]
   }
-
+  
   const findTotalScore= () => {
     return answers.reduce(((acc, answer) => ({
       userTotal: acc.userTotal + answer.userAnswer,
@@ -35,19 +35,21 @@ const Result = ({
       partnerTotal: 0,
     })
   }
-
+  
   const totalScores = findTotalScore()
-  const youMostCommonAnswer = findCommonAnswer(false)
+  const userMostCommonAnswer = findCommonAnswer(false)
   const partnerMostCommonAnswer = findCommonAnswer(true)
+  const userStringResult = page.bodyBold
+    .replace('<total_score>', totalScores.userTotal)
+    .replace('<common_score>', `${userMostCommonAnswer.text} (${userMostCommonAnswer.total})`)
+  const partnerStringResult = `Your partner's total score was ${totalScores.partnerTotal} and their most common score was ${partnerMostCommonAnswer.text} (${partnerMostCommonAnswer.total})`
   return (
     <>
-      <h2>Results</h2>
-      <h3>You</h3>
-      <h3>Most common answer: {youMostCommonAnswer.text} ({youMostCommonAnswer.total})</h3>
-      <h3>Total score: {totalScores.userTotal}</h3>
-      <h3>Your Partner</h3>
-      <h3>Most common answer: {partnerMostCommonAnswer.text} ({partnerMostCommonAnswer.total})</h3>
-      <h3>Total score: {totalScores.partnerTotal}</h3>
+      <p className='resultBody'>{page.body.replace(',', '')}</p>
+      <div className='resultContainer'>
+        <p className='result'>{userStringResult}</p>
+        <p className='result'>{partnerStringResult}</p>
+      </div>
     </>
   )
 }

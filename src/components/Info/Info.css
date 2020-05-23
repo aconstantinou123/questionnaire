@@ -1,15 +1,10 @@
-.resultBody {
+.pageHeader {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 16px;
 }
 
-.resultContainer {
-    width: 100%;
-    text-align: center;
-}
-
-.result {
+.pageBody {
     font-size: 24px;
     font-family: 'DM Serif Display', serif;
 }
