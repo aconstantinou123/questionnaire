@@ -13,26 +13,6 @@
   font-size: 23px;
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.next {
-  font-family: 'Roboto', sans-serif;
-  background-color: #ebb434;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 30px;
-  box-shadow: 5px 5px 5px #d9d3d2, 1px 1px 1px #0d0d0d;
-}
-
 /* .row:not(:last-child) {
   margin-bottom: 16px;
 }

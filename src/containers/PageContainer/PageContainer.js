@@ -1,9 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 import ScaleQuestion from '../../components/ScaleQuestion/ScaleQuestion'
 import Result from '../../components/Result/Result'
 import Info from '../../components/Info/Info'
-import './PageContainer.css';
+import PageButtons from '../../components/PageButtons/PageButtons'
+
+import './PageContainer.css'
 
 const PageContainer = ({ 
   currentPage,
@@ -25,7 +27,7 @@ const PageContainer = ({
     {
       currentPage.type === 'info' &&
       <Info
-      page={currentPage}
+        page={currentPage}
       />
     }
     {
@@ -44,20 +46,13 @@ const PageContainer = ({
         answers={answers}
       />
     }
-      <div className='buttonContainer'>
-        {
-          currentPageIndex !== 0 &&
-          <button className="next" onClick={getPreviousPage}>Back</button>
-        }
-        {
-          currentPageIndex + 1 !== pages.length && 
-          <button className="next" onClick={getNextPage}>Next</button>
-        }
-        {
-          currentPageIndex + 1 === pages.length && 
-          <button className="next" onClick={resetState}>Reset</button>
-        }
-      </div>
+      <PageButtons
+        currentPageIndex={currentPageIndex}
+        pages={pages}
+        getNextPage={getNextPage}
+        getPreviousPage={getPreviousPage}
+        resetState={resetState}
+      />
     </div>
   )
 }
