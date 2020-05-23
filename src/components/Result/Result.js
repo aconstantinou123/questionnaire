@@ -8,7 +8,7 @@ const Result = ({
   
   const findCommonAnswer = (isPartner) => {
     const totals = answers.reduce((acc, answer) => {
-      const key = isPartner ? answer.partnerAnswerText : answer.youAnswerText
+      const key = isPartner ? answer.partnerAnswerText : answer.userAnswerText
       if(!acc.hasOwnProperty(key)) {
         return {
           ...acc,
@@ -28,7 +28,7 @@ const Result = ({
 
   const findTotalScore= () => {
     return answers.reduce(((acc, answer) => ({
-      youTotal: acc.youTotal + answer.youAnswer,
+      youTotal: acc.youTotal + answer.userAnswer,
       partnerTotal: acc.partnerTotal + answer.partnerAnswer,
     })), {
       youTotal: 0,

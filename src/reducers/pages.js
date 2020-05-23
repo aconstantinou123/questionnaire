@@ -15,8 +15,8 @@ const defaultState = {
     .filter(page => page.type === 'rating_scale')
     .map(page => ({ 
       identifer: page.collect, 
-      youAnswer: page.defaultIndex,
-      youAnswerText: page.options[page.defaultIndex],
+      userAnswer: page.defaultIndex,
+      userAnswerText: page.options[page.defaultIndex],
       partnerAnswer: page.defaultIndex,
       partnerAnswerText: page.options[page.defaultIndex],
   }))
@@ -43,8 +43,8 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              youAnswer: Number(action.payload.value),
-              youAnswerText: state.currentPage.options[action.payload.value]
+              userAnswer: Number(action.payload.value),
+              userAnswerText: state.currentPage.options[action.payload.value]
             }
           }
           return answer

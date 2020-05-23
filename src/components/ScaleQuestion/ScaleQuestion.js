@@ -27,13 +27,13 @@ const ScaleQuestion = ({
       <h3>{question.caption}</h3>
       <h2>{question.label}</h2>
       <h2>{question.scaleTitle}</h2>
-      <h4>{currentAnswer.youAnswerText}</h4>
+      <h4>{currentAnswer.userAnswerText}</h4>
       <input 
         type="range" 
         id="answer" 
         name="answer" 
         min="0" 
-        value={currentAnswer.youAnswer}
+        value={currentAnswer.userAnswer}
         max={question.values.length - 1}
         onChange={handleChangeYou}>
       </input>
