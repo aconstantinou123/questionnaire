@@ -6,7 +6,7 @@ const Result = ({
   answers,
 }) => {
   
-  const findYourCommonAnswer = (isPartner) => {
+  const findCommonAnswer = (isPartner) => {
     const totals = answers.reduce((acc, answer) => {
       const key = isPartner ? answer.partnerAnswerText : answer.youAnswerText
       if(!acc.hasOwnProperty(key)) {
@@ -37,8 +37,8 @@ const Result = ({
   }
 
   const totalScores = findTotalScore()
-  const youMostCommonAnswer = findYourCommonAnswer(false)
-  const partnerMostCommonAnswer = findYourCommonAnswer(true)
+  const youMostCommonAnswer = findCommonAnswer(false)
+  const partnerMostCommonAnswer = findCommonAnswer(true)
   return (
     <>
       <h2>Results</h2>
