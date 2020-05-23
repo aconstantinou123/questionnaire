@@ -44,20 +44,20 @@ const PageContainer = ({
         answers={answers}
       />
     }
-    <div className='buttonContainer'>
-      {
-        currentPageIndex !== 0 &&
-        <button className="next" onClick={getPreviousPage}>Back</button>
-      }
-      {
-        currentPageIndex + 1 !== pages.length && 
-        <button className="next" onClick={getNextPage}>Next</button>
-      }
-      {
-        currentPageIndex + 1 === pages.length && 
-        <button className="next" onClick={resetState}>Reset</button>
-      }
-    </div>
+      <div className='buttonContainer'>
+        {
+          currentPageIndex !== 0 &&
+          <button className="next" onClick={getPreviousPage}>Back</button>
+        }
+        {
+          currentPageIndex + 1 !== pages.length && 
+          <button className="next" onClick={getNextPage}>Next</button>
+        }
+        {
+          currentPageIndex + 1 === pages.length && 
+          <button className="next" onClick={resetState}>Reset</button>
+        }
+      </div>
     </div>
   )
 }

@@ -7,7 +7,7 @@ const Info = ({ page }) => {
   const bodyWithName = page.body.replace(/<partner name>/g, partnerName)
   return (
     <>
-      <h3 className='pageHeader'>{page.label}</h3>
+      <p className='pageHeader'>{page.label}</p>
       <p className='pageBody'>{bodyWithName}</p>
     </>
   )
