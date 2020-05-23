@@ -43,7 +43,7 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              youAnswer: action.payload.value,
+              youAnswer: Number(action.payload.value),
               youAnswerText: state.currentPage.options[action.payload.value]
             }
           }
@@ -57,7 +57,7 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              partnerAnswer: action.payload.value,
+              partnerAnswer: Number(action.payload.value),
               partnerAnswerText: state.currentPage.options[action.payload.value]
             }
           }

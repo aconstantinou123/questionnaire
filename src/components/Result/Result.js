@@ -27,16 +27,27 @@ const Result = ({
     return sorted[0]
   }
 
+  const findTotalScore= () => {
+    return answers.reduce(((acc, answer) => ({
+      youTotal: acc.youTotal + answer.youAnswer,
+      partnerTotal: acc.partnerTotal + answer.partnerAnswer,
+    })), {
+      youTotal: 0,
+      partnerTotal: 0,
+    })
+  }
+  const totalScores = findTotalScore()
   const youMostCommonAnswer = findYourCommonAnswer(false)
   const partnerMostCommonAnswer = findYourCommonAnswer(true)
   return (
     <>
       <h2>Results</h2>
-      <h3>Most common answers</h3>
       <h3>You</h3>
-      <h3>{youMostCommonAnswer.text}: {youMostCommonAnswer.total}</h3>
+      <h3>Most common answer: {youMostCommonAnswer.text} ({youMostCommonAnswer.total})</h3>
+      <h3>Total score: {totalScores.youTotal}</h3>
       <h3>Your Partner</h3>
-      <h3>{partnerMostCommonAnswer.text}: {partnerMostCommonAnswer.total}</h3>
+      <h3>Most common answer: {partnerMostCommonAnswer.text} ({partnerMostCommonAnswer.total})</h3>
+      <h3>Total score: {totalScores.partnerTotal}</h3>
     </>
   )
 }
