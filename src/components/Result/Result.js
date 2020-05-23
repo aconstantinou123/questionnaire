@@ -3,7 +3,6 @@ import React from 'react'
 import './Result.css'
 
 const Result = ({
-  questions,
   answers,
 }) => {
   
@@ -36,6 +35,7 @@ const Result = ({
       partnerTotal: 0,
     })
   }
+
   const totalScores = findTotalScore()
   const youMostCommonAnswer = findYourCommonAnswer(false)
   const partnerMostCommonAnswer = findYourCommonAnswer(true)

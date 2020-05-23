@@ -18,10 +18,6 @@ const PageContainer = ({
     return answers
     .find(answer => answer.identifer === currentPage.collect)
   }
-  const getQuestions = () => {
-    return pages
-      .filter(question => question.type === 'rating_scale')
-  }
   return (
     <div>
     {
@@ -41,7 +37,6 @@ const PageContainer = ({
       currentPage.type === 'attachment_result' &&
       <Result
         answers={answers}
-        questions={getQuestions()}
       />
     }
     {
