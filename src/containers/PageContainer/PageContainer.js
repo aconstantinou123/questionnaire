@@ -47,7 +47,6 @@ const PageContainer = ({
       currentPage.type === 'rating_scale' &&
       <ScaleQuestion
         question={currentPage}
-        progress={calculateProgress()}
         currentAnswer={getCurrentAnswer()}
         selectAnswerYou={selectAnswerYou}
         selectAnswerPartner={selectAnswerPartner}
@@ -61,6 +60,7 @@ const PageContainer = ({
       />
     }
       <PageButtons
+        progress={calculateProgress()}
         currentPageIndex={currentPageIndex}
         pages={pages}
         getNextPage={getNextPage}
