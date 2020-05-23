@@ -21,8 +21,8 @@ const Result = ({
       }
     }, {})
     const sorted = Object.keys(totals)
-    .map(key => ({ text: key, total: totals[key] }))
-    .sort((a, b) => b.total - a.total)
+      .map(key => ({ text: key, total: totals[key] }))
+      .sort((a, b) => b.total - a.total)
     return sorted[0]
   }
   
