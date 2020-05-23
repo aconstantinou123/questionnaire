@@ -41,8 +41,8 @@ const Result = ({
   const partnerMostCommonAnswer = findCommonAnswer(true)
   const userStringResult = page.bodyBold
     .replace('<total_score>', totalScores.userTotal)
-    .replace('<common_score>', `${userMostCommonAnswer.text} (${userMostCommonAnswer.total})`)
-  const partnerStringResult = `Your partner's total score was ${totalScores.partnerTotal} and their most common score was ${partnerMostCommonAnswer.text} (${partnerMostCommonAnswer.total})`
+    .replace('<common_score>', `"${userMostCommonAnswer.text}" (${userMostCommonAnswer.total} answers)`)
+  const partnerStringResult = `Your partner's total score was ${totalScores.partnerTotal} and their most common score was "${partnerMostCommonAnswer.text}" (${partnerMostCommonAnswer.total} answers).`
   return (
     <>
       <p className='resultBody'>{page.body.replace(',', '')}</p>
