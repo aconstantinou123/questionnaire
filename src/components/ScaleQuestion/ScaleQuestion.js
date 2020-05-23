@@ -7,6 +7,7 @@ const ScaleQuestion = ({
   selectAnswerYou,
   selectAnswerPartner,
   currentAnswer,
+  progress,
 }) => {
   const handleChangeYou = (e) => {
     const identifier = question.collect
@@ -22,8 +23,16 @@ const ScaleQuestion = ({
         value: e.target.value
       })
   }
+  const progressMeterWidth = {
+    width: `${progress}%`
+  }
   return (
     <>
+      <div className="meterContainer">
+        <div className="meter">
+          <span style={progressMeterWidth}></span>
+        </div>
+      </div>
       <p className='caption'>{question.caption}</p>
       <p className='label'>{question.label}</p>
       <div className='scaleContainer'>

@@ -22,6 +22,19 @@ const PageContainer = ({
     return answers
     .find(answer => answer.identifer === currentPage.collect)
   }
+  const calculateProgress = () => {
+    if(currentPage.type === 'rating_scale'){
+        let currentQuestionNumber = 1
+        answers.forEach((answer, index) => {
+          if(answer.identifer === currentPage.collect){
+            currentQuestionNumber = currentQuestionNumber + index
+          }
+        })
+        const percent = currentQuestionNumber / answers.length * 100
+        return percent
+    }
+    return 0
+  }
   return (
     <div className='pageContainer'>
     {
@@ -34,6 +47,7 @@ const PageContainer = ({
       currentPage.type === 'rating_scale' &&
       <ScaleQuestion
         question={currentPage}
+        progress={calculateProgress()}
         currentAnswer={getCurrentAnswer()}
         selectAnswerYou={selectAnswerYou}
         selectAnswerPartner={selectAnswerPartner}
