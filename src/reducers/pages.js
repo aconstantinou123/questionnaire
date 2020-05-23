@@ -43,8 +43,8 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              userAnswer: Number(action.payload.value) + 1,
-              userAnswerText: state.currentPage.options[action.payload.value]
+              userAnswer: Number(action.payload.value),
+              userAnswerText: state.currentPage.options[action.payload.value - 1]
             }
           }
           return answer
@@ -57,8 +57,8 @@ export default function (state = defaultState, action) {
           if(answer.identifer === action.payload.identifier){
             return {
               ...answer,
-              partnerAnswer: Number(action.payload.value) + 1,
-              partnerAnswerText: state.currentPage.options[action.payload.value]
+              partnerAnswer: Number(action.payload.value),
+              partnerAnswerText: state.currentPage.options[action.payload.value - 1]
             }
           }
           return answer

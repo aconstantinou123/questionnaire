@@ -33,9 +33,9 @@ const ScaleQuestion = ({
           type="range" 
           id="answer" 
           name="answer" 
-          min="0" 
-          value={Number(currentAnswer.userAnswer) - 1}
-          max={question.values.length - 1}
+          min="1" 
+          value={Number(currentAnswer.userAnswer)}
+          max={question.values.length}
           onChange={handleChangeYou}>
         </input>
         <p className='title'>{question.scaleTitle2}</p>
@@ -44,9 +44,9 @@ const ScaleQuestion = ({
           type="range" 
           id="answer" 
           name="answer" 
-          min="0" 
-          value={Number(currentAnswer.partnerAnswer) - 1}
-          max={question.values.length - 1}
+          min="1" 
+          value={Number(currentAnswer.partnerAnswer)}
+          max={question.values.length}
           onChange={handleChangePartner}>
         </input>
       </div>
